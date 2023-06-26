@@ -120,13 +120,10 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.camera.full.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.full.xml \
     frameworks/native/data/etc/android.hardware.camera.raw.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.raw.xml
 
-
-# Dex
-PRODUCT_DEX_PREOPT_DEFAULT_COMPILER_FILTER := verify
-
-# Dexpreopt
-PRODUCT_DEXPREOPT_SPEED_APPS += \
-    SystemUI
+# Dex/ART optimization
+PRODUCT_ART_TARGET_INCLUDE_DEBUG_BUILD := false
+PRODUCT_DEX_PREOPT_DEFAULT_COMPILER_FILTER := everything
+USE_DEX2OAT_DEBUG := false
 
 # Display
 PRODUCT_PACKAGES += \
